@@ -1,0 +1,50 @@
+package my.minavy.KitpvpPlugin;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+
+public class KitpvpPlugin extends JavaPlugin {
+
+    public static KitpvpPlugin plugin;
+
+    public void onEnable() {
+       // TODO プラグイン有効
+          getLogger().info("プラグインが有効になりました。");
+    }
+
+    public void onDisabnd() {
+       // TODO プラグイン無効
+          getLogger().info("プラグインが無効になりました。");
+          plugin = null;
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event){
+       Player player = event.getPlayer();
+       Bukkit.broadcastMessage(ChatColor.WHITE + player.getDisplayName() + ChatColor.YELLOW  + " joined Server");
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event){
+       Player player = event.getPlayer();
+       Bukkit.broadcastMessage(ChatColor.WHITE + player.getDisplayName() + ChatColor.YELLOW  + " left Server");
+    }
+
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {{
+        if (cmd.getName().equalsIgnoreCase("kit")) {
+        //Kit コマンド処理
+          sender.sendMessage("KitPvP version : 13.5");
+        return false;
+    }
+        return false;
+    }
+    }
+}
