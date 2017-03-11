@@ -1,0 +1,14 @@
+name: KitpvpPlugin
+main: my.minavy.KitpvpPlugin.Main
+version: 13.5
+author: Minavy
+load: POSTWORLD
+description: This plugin is Kitpvp.
+default-permission: NOT_OP
+prefix: [KitPvP]
+commands:
+   kit:
+      description: versions command
+      usage: Kitpvp error!
+      permission: kitpvp.kit
+      permission-message: You don't have <permission>
